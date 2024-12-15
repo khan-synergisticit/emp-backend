@@ -6,8 +6,8 @@ pipeline {
             steps{
                 script{
                     def remote = [:];
-                remote.name = env.DEVOPS_IP;
-                remote.host = env.DEVOPS_IP;
+                remote.name = env.BACKEND_IP;
+                remote.host = env.BACKEND_IP;
                 remote.user = env.REMOTE_USER;
                 remote.password = env.REMOTE_PASSWORD;
                 remote.allowAnyHosts = true;
