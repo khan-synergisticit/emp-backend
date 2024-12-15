@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.backend.config.Constants;
+import com.example.backend.config.Constants.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +22,7 @@ import com.example.backend.repository.EmployeeRepository;
 import com.example.backend.exceptions.ResourceNotFoundException;
 import com.example.backend.model.Employee;
 
-@CrossOrigin(origins = "http://192.167.62.11:8080") 
+//@CrossOrigin(origins = "http://192.168.62.11:8080")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {

@@ -1,0 +1,23 @@
+services:
+  backend:
+    # image: khanster/backend:latest
+    container_name: backend
+    build:
+      context: .
+    ports:
+      - "8020:8020"
+    networks:
+      - angular
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_IP}:3306/employee_management?autoReconnect=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - .:/usr/app
+      - ./.m2:/root/.m2
+
+
+networks:
+  angular:
+    name: angular
+    external: true
