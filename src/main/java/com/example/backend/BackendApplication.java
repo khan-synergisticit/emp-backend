@@ -21,7 +21,6 @@ public class BackendApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry
-                // .addMapping("/**").allowedOrigins("http://192.168.62.11:8080")
                 .addMapping("/**").allowedOrigins(Constants.FRONTEND_URL)
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed methods
                 .allowedHeaders("*"); // Allowed headers

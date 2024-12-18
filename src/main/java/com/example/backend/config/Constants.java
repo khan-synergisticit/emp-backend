@@ -6,5 +6,5 @@ public class Constants {
     private String USER = System.getenv("DB_USERNAME");
     private String PASS = System.getenv("DB_PASSWORD");
 
-    public static final String FRONTEND_URL = "http://"+ DEVOPS + ":8080";
+    public static final String FRONTEND_URL = "http://"+ System.getenv("DEVOPS_IP") + ":8080";
 }
