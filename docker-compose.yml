@@ -1,7 +1,7 @@
 services:
-  backend:
+  emp-backend:
     # image: khanster/backend:latest
-    container_name: backend
+    container_name: emp-backend
     build:
       context: .
     ports:

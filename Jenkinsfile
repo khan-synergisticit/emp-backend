@@ -1,19 +1,19 @@
 pipeline {
     agent any
-
     stages{
-        stage("Update and deploy"){
+        stage("SSH"){
             steps{
-                script{
-                    def remote = [:];
-                remote.name = env.BACKEND_IP;
-                remote.host = env.BACKEND_IP;
-                remote.user = env.REMOTE_USER;
-                remote.password = env.REMOTE_PASSWORD;
-                remote.allowAnyHosts = true;
+                script{                    
+                    withCredentials([sshUserPrivateKey(credentialsId: 'oci-backend', keyFileVariable: 'PK',  usernameVariable: 'userName')]) {
+                        def remote = [:];
+                        remote.name = "146.235.193.115";
+                        remote.host = "146.235.193.115";
+                        remote.user = userName;
+                        remote.identityFile = PK;
+                        remote.allowAnyHosts = true;
+                        sshCommand remote: remote, command: "cd angular/emp-backend && ./deploy-backend.sh"
 
-                sshCommand remote: remote, command: "cd angular && ./deploy-backend.sh"
-
+                    }
                 }
             }
         }
