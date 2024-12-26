@@ -6,8 +6,8 @@ pipeline {
                 script{                    
                     withCredentials([sshUserPrivateKey(credentialsId: 'oci-backend', keyFileVariable: 'PK',  usernameVariable: 'userName')]) {
                         def remote = [:];
-                        remote.name = "146.235.193.115";
-                        remote.host = "146.235.193.115";
+                        remote.name = "34.67.84.34";
+                        remote.host = "34.67.84.34";
                         remote.user = userName;
                         remote.identityFile = PK;
                         remote.allowAnyHosts = true;
